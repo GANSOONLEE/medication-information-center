@@ -16,7 +16,7 @@
     </head>
     <body class="antialiased">
         
-        <div class="a bg-gray-400 p-4">1</div>
+        <x-frontend.navbar />
         
     </body>
 </html>

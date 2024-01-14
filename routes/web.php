@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+require_once app_path('Helpers/Global/SystemHelper.php');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+/**
+ * Frontend 前端
+ */
+
+Route::group(['prefix' => 'frontend','as' => 'frontend.'], function () {
+    includeRouteFiles(__DIR__ . '/frontend/');
+});
+
+/**
+ * Backend 後端
+ */
+
+Route::group(['prefix' => 'backend', 'as' => 'backend.'], function () {
+    includeRouteFiles(__DIR__ . '/backend/');
 });
