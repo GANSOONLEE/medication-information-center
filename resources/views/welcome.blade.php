@@ -17,6 +17,8 @@
     <body class="antialiased">
         
         <x-frontend.navbar />
+
+        @include('frontend.includes.feature')
         
     </body>
 </html>
