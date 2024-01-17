@@ -18,7 +18,12 @@
         
         <x-frontend.navbar />
 
-        @include('frontend.includes.feature')
+        <div id="app">
+            
+            @include('frontend.includes.feature')
+            
+        </div>
+
         
     </body>
 </html>
