@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ env('APP_NAME') }} | @yield('title')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,13 +14,13 @@
         @vite(['resources/js/app.js'])
 
     </head>
-    <body class="antialiased">
+    <body id="app" class="antialiased min-h-screen dark:bg-gray-900">
         
         <x-frontend.navbar />
 
-        <div id="app">
+        <div>
             
-            @include('frontend.includes.feature')
+            @yield('content')
             
         </div>
 

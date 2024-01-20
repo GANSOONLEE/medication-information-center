@@ -1,6 +1,6 @@
 // tailwind.config.js
 module.exports = {
-  darkMode: 'class',
+  darkMode: 'media',
   content: [
     './resources/**/*.blade.php',
     './resources/**/*.js',

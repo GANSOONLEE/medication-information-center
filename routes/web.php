@@ -15,15 +15,11 @@ require_once app_path('Helpers/Global/SystemHelper.php');
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /**
  * Frontend 前端
  */
 
-Route::group(['prefix' => 'frontend','as' => 'frontend.'], function () {
+Route::group(['as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__ . '/frontend/');
 });
 

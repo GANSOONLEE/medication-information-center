@@ -1,5 +1,5 @@
 
-<header>
+<header class="sticky top-0">
     <nav class=" border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="https://flowbite.com" class="flex items-center">
@@ -29,21 +29,41 @@
             </div>
             <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 text-white" aria-current="page">首頁</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 pr-4 pl-3  border-b  lg:border-0 lg:p-0 text-gray-400 lg:hover:text-white hover:bg-gray-700 hover:text-white lg:hover:bg-transparent border-gray-700">藥物查詢</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 pr-4 pl-3  border-b  lg:border-0 lg:p-0 text-gray-400 lg:hover:text-white hover:bg-gray-700 hover:text-white lg:hover:bg-transparent border-gray-700">資料管理</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 pr-4 pl-3  border-b  lg:border-0 lg:p-0 text-gray-400 lg:hover:text-white hover:bg-gray-700 hover:text-white lg:hover:bg-transparent border-gray-700">網站管理</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 pr-4 pl-3  border-b  lg:border-0 lg:p-0 text-gray-400 lg:hover:text-white hover:bg-gray-700 hover:text-white lg:hover:bg-transparent border-gray-700">法律資訊</a>
-                    </li>
+
+                    <!-- Define navbar links 定義導覽行鏈接 -->
+                    @php
+                        $links = [
+                            (object)[
+                                'href' => 'frontend.home',
+                                'label' => '首頁'
+                            ],
+                            (object)[
+                                'href' => 'frontend.inquire',
+                                'label' => '藥物查詢'
+                            ],
+                            (object)[
+                                'href' => '#',
+                                'label' => '資料管理'
+                            ],
+                            (object)[
+                                'href' => '#',
+                                'label' => '網站管理'
+                            ],
+                            (object)[
+                                'href' => '#',
+                                'label' => '法律資訊'
+                            ],
+                        ];
+                    @endphp
+
+                    @foreach ($links as $link)
+                        <navbar-link
+                            :current-page="{{ Request::route()->getName() === $link->href ? 'true' : 'false' }}"
+                            href="{{ $link->href !== '#' ? route($link->href) : '#' }}"
+                            label="{{ $link->label }}"
+                        ></navbar-link>
+                    @endforeach
+
                 </ul>
             </div>
         </div>
