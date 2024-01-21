@@ -11,7 +11,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Vite -->
-        @vite(['resources/js/app.js'])
+        {{-- {{ mix('public/build/assets/js/app.js') }} --}}
+        @vite('resources/js/app.js')
 
     </head>
     <body id="app" class="antialiased min-h-screen dark:bg-gray-900">

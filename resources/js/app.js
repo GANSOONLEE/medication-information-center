@@ -14,7 +14,6 @@ const modules = await Promise.all(
             const componentName = path.split('/').pop().split('.')[0];
             const { default: component } = await module();
             app.component(componentName, component);
-            console.info(componentName, component);
     })
 );
 

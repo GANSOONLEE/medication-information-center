@@ -16,7 +16,6 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/js/**/*.vue'
             ],
             refresh: [
                 'resources/view/**/*.blade.php',
@@ -28,5 +27,13 @@ export default defineConfig({
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js'
         }
-    }
+    },
+    base: './',
+    build: {
+        minify: "terser",
+        target: "esnext",
+        outDir: 'public/build',
+        manifest: true,
+        assetsDir: '.',
+    },
 });
